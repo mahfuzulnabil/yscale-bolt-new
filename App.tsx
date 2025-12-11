@@ -8,6 +8,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { PricingSection } from './components/PricingSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
+import { PortfolioSection } from './components/PortfolioSection';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <PricingSection />
       <FAQSection />
       <CTASection />
+      <PortfolioSection />
       <Footer />
     </div>
   );
