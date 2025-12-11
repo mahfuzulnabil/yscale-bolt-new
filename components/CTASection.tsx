@@ -77,36 +77,6 @@ export const CTASection: React.FC = () => {
             <span className="text-brand-orange font-bold text-sm cursor-pointer hover:underline">SHOW MORE</span>
           </div>
 
-          {/* Calendar Section */}
-          <div className="p-8 bg-white">
-            <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Select a Date & Time</h4>
-            
-            <div className="flex items-center justify-center gap-8 mb-6 text-gray-600">
-               <button className="p-1 hover:bg-gray-100 rounded-full"><span className="text-xl">‹</span></button>
-               <span className="font-medium">December 2025</span>
-               <button className="p-1 hover:bg-gray-100 rounded-full bg-blue-50 text-blue-600"><span className="text-xl">›</span></button>
-            </div>
-
-            {/* Calendar Grid Mock */}
-            <div className="max-w-sm mx-auto">
-               <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-400 mb-2">
-                  <div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div><div>SUN</div>
-               </div>
-               <div className="grid grid-cols-7 gap-y-2 text-center text-sm font-medium text-gray-600">
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-blue-50 hover:text-blue-600 cursor-pointer">1</div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-blue-50 hover:text-blue-600 cursor-pointer">2</div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-blue-50 hover:text-blue-600 cursor-pointer">3</div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-blue-50 hover:text-blue-600 cursor-pointer">4</div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-blue-50 hover:text-blue-600 cursor-pointer">5</div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold relative cursor-pointer">
-                    6
-                    <div className="absolute -bottom-1 w-1 h-1 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-bold cursor-pointer">7</div>
-               </div>
-            </div>
-          </div>
-
         </a>
 
       </div>
