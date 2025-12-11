@@ -33,6 +33,10 @@ const WellbeneVisual = () => (
   <img src="/wellbene.png" alt="Wellbene Store" className="w-full h-full object-cover" />
 );
 
+const ChatbooklyVisual = () => (
+  <img src="/ddws.png" alt="Chatbookly Interface" className="w-full h-full object-cover" />
+);
+
 const PlaceholderVisual = ({ label }: { label?: string }) => (
   <div className="w-full h-full bg-gray-50 flex items-center justify-center border-l border-gray-100/50">
     <div className="text-gray-300 font-medium text-lg tracking-widest uppercase">{label || "Preview"}</div>
@@ -136,9 +140,9 @@ export const WorkSection: React.FC = () => {
             description="Chatbooky is the only platform that allows you to book your services in seconds on WhatsApp."
             stats="120%"
             statsLabel="Increase Booking Experience"
-            tags={['SaaS', 'Booking Automation']} 
+            tags={['SaaS', 'Booking Automation']}
             layout="text-left"
-            visual={<PlaceholderVisual label="WhatsApp Interface" />}
+            visual={<ChatbooklyVisual />}
           />
 
           <WorkCard
