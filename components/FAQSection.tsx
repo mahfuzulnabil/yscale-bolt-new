@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const faqs = [
   {
@@ -27,13 +27,19 @@ const faqs = [
 
 export const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
 
   return (
     <section className="w-full bg-gray-50 py-24 px-4 md:px-8 border-t border-gray-200">
       <div className="max-w-3xl mx-auto">
-        
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-3 py-1 mb-6 shadow-sm">
              <span className="w-2 h-2 rounded-full bg-brand-orange"></span>
              <span className="text-sm text-gray-600 font-medium">FAQ</span>
@@ -47,11 +53,18 @@ export const FAQSection: React.FC = () => {
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
-            return (
-              <div 
-                key={index} 
-                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-orange/30 shadow-md' : 'border-gray-200 hover:border-gray-300'}`}
-              >
+            const FAQItem = () => {
+              const { ref, isVisible } = useScrollAnimation({ threshold: 0.2, delay: index * 100 });
+
+              return (
+                <div
+                  ref={ref as React.RefObject<HTMLDivElement>}
+                  className={`bg-white rounded-2xl border transition-all duration-700 overflow-hidden ${
+                    isOpen ? 'border-brand-orange/30 shadow-md' : 'border-gray-200 hover:border-gray-300'
+                  } ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+                  }`}
+                >
                 <button 
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
@@ -72,7 +85,10 @@ export const FAQSection: React.FC = () => {
                   </p>
                 </div>
               </div>
-            );
+              );
+            };
+
+            return <FAQItem key={index} />;
           })}
         </div>
 

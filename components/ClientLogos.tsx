@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Reusable wrapper for consistent styling: Grayscale by default, color on hover
 const LogoWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -96,8 +97,15 @@ const HelpAHeroLogo = () => (
 );
 
 export const ClientLogos: React.FC = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <div className="mt-20 w-full max-w-7xl mx-auto px-6">
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`mt-20 w-full max-w-7xl mx-auto px-6 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="flex items-center justify-center mb-12">
         <span className="text-gray-500 text-sm md:text-base font-medium tracking-wide text-center">
             Over 100+ brands trust stunning experiences with Yscale.

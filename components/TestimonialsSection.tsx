@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Star } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // --- Types ---
 
@@ -122,12 +122,19 @@ const testimonials: Testimonial[] = [
 // --- Component ---
 
 export const TestimonialsSection: React.FC = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section className="w-full bg-white py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-1.5 py-1 mb-6 shadow-sm">
              <span className="px-3 py-1 rounded-full bg-[#E8F5E9] text-[#2E7D32] text-xs font-bold uppercase tracking-wide">Testimonials</span>
              <span className="text-sm text-gray-600 font-medium px-2">Word from client</span>
@@ -139,8 +146,17 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300 flex flex-col h-full">
+          {testimonials.map((t, idx) => {
+            const TestimonialCard = () => {
+              const { ref, isVisible } = useScrollAnimation({ threshold: 0.2, delay: idx * 100 });
+
+              return (
+                <div
+                  ref={ref as React.RefObject<HTMLDivElement>}
+                  className={`bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-700 flex flex-col h-full ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                >
               
               {/* Card Header */}
               <div className="flex justify-between items-center mb-8">
@@ -170,7 +186,11 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          ))}
+              );
+            };
+
+            return <TestimonialCard key={idx} />;
+          })}
         </div>
 
       </div>

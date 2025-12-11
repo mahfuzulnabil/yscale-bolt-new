@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface PricingCardProps {
   title: string;
@@ -12,8 +12,15 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ title, price, description, buttonText, buttonStyle, features }) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <div className="bg-[#F3F4F6] rounded-2xl p-8 md:p-10 flex flex-col h-full border border-gray-200/50 hover:border-gray-300 transition-colors duration-300">
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`bg-[#F3F4F6] rounded-2xl p-8 md:p-10 flex flex-col h-full border border-gray-200/50 hover:border-gray-300 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+    >
       
       {/* Header */}
       <div className="flex justify-between items-start mb-6">
@@ -60,6 +67,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, description, bu
 };
 
 export const PricingSection: React.FC = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+
   const commonFeatures = [
     "Advanced Apps for complex campaign orchestration",
     "No-code AI App Builder to create custom Apps without developers",
@@ -74,7 +83,12 @@ export const PricingSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-1.5 py-1 mb-6 shadow-sm">
              <span className="px-3 py-1 rounded-full bg-[#E8F5E9] text-[#2E7D32] text-xs font-bold uppercase tracking-wide">Strikes</span>
              <span className="text-sm text-gray-600 font-medium px-2">the perfect balance</span>

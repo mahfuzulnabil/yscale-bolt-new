@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Sparkles, Cat, MessageSquare, ShoppingBag, Coffee } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // --- Types ---
 
@@ -46,8 +46,15 @@ const PlaceholderVisual = ({ label }: { label?: string }) => (
 // --- Card Component ---
 
 const WorkCard: React.FC<WorkCardProps> = ({ name, logoIcon, description, stats, statsLabel, tags, layout, visual }) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+
   return (
-    <div className="group w-full bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden flex flex-col md:flex-row min-h-[450px]">
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`group w-full bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-700 overflow-hidden flex flex-col md:flex-row min-h-[450px] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+    >
       
       {/* Content Side */}
       <div className={`flex-1 p-8 md:p-12 flex flex-col justify-center ${layout === 'text-right' ? 'md:order-2' : 'md:order-1'}`}>
@@ -94,12 +101,19 @@ const WorkCard: React.FC<WorkCardProps> = ({ name, logoIcon, description, stats,
 };
 
 export const WorkSection: React.FC = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section className="w-full bg-white py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-20 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-50 border border-gray-200 mb-6">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             <span className="text-sm font-medium text-gray-600">Recent work</span>

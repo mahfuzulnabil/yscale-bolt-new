@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // --- Custom Illustrations ---
 
@@ -104,6 +104,8 @@ interface ProcessCardProps {
 }
 
 const ProcessCard: React.FC<ProcessCardProps> = ({ title, illustration, description, listItems, theme }) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   const themeStyles = {
     pink: {
       bg: 'bg-[#FFF0EB]',
@@ -128,7 +130,12 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ title, illustration, descript
   const currentTheme = themeStyles[theme];
 
   return (
-    <div className={`rounded-2xl overflow-hidden ${currentTheme.bg} flex flex-col h-full border ${currentTheme.border}`}>
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={`rounded-2xl overflow-hidden ${currentTheme.bg} flex flex-col h-full border ${currentTheme.border} transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Top Section with Grid and Illustration */}
       <div className="relative h-48 md:h-56 w-full border-b border-black/5 flex items-center justify-center p-6">
         {/* CSS Grid Pattern */}
@@ -172,12 +179,19 @@ const ProcessCard: React.FC<ProcessCardProps> = ({ title, illustration, descript
 };
 
 export const ProcessSection: React.FC = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
+
   return (
     <section className="w-full bg-white py-20 px-4 md:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef as React.RefObject<HTMLDivElement>}
+          className={`text-center mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1 mb-6 shadow-sm">
              <span className="w-auto h-auto px-2 py-0.5 rounded-sm bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wide">Starting</span>
              <span className="text-sm text-gray-600 font-medium">is easy</span>

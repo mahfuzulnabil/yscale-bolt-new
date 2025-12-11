@@ -1,36 +1,63 @@
 import React from 'react';
 import { ClientLogos } from './ClientLogos';
 import { HeaderBackground } from './HeaderBackground';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const Hero: React.FC = () => {
+  const { ref: badgeRef, isVisible: badgeVisible } = useScrollAnimation({ threshold: 0.5 });
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({ threshold: 0.5 });
+  const { ref: subtitleRef, isVisible: subtitleVisible } = useScrollAnimation({ threshold: 0.5 });
+  const { ref: buttonsRef, isVisible: buttonsVisible } = useScrollAnimation({ threshold: 0.5 });
+
   return (
     <main className="relative w-full flex flex-col items-center pt-16 pb-24 px-4 overflow-hidden min-h-[90vh]">
       {/* Background Animation */}
       <HeaderBackground />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
-        
+
+
         {/* Updated "Trusted By" Badge - Simplified */}
-        <div className="animate-fade-in-up mb-8 inline-flex items-center bg-white/90 backdrop-blur-sm border border-gray-200/60 rounded-full px-5 py-2 cursor-default hover:bg-white hover:border-green-200 hover:shadow-md transition-all duration-300 select-none">
+        <div
+          ref={badgeRef as React.RefObject<HTMLDivElement>}
+          className={`mb-8 inline-flex items-center bg-white/90 backdrop-blur-sm border border-gray-200/60 rounded-full px-5 py-2 cursor-default hover:bg-white hover:border-green-200 hover:shadow-md transition-all duration-700 select-none ${
+            badgeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <span className="text-sm text-gray-700 font-medium">
             Yscale Trusted by 100+ startups
           </span>
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-gray-900 tracking-tight mb-8">
+        <h1
+          ref={titleRef as React.RefObject<HTMLHeadingElement>}
+          className={`font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-gray-900 tracking-tight mb-8 transition-all duration-700 delay-100 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           Premium Design Studio<br />
           <span className="italic font-normal">for</span> SaaS & Startups
         </h1>
 
         {/* Subheadline */}
-        <p className="font-sans text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p
+          ref={subtitleRef as React.RefObject<HTMLParagraphElement>}
+          className={`font-sans text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${
+            subtitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           We help startups and brands build websites, apps and identities that people love to use. 
           At Yscale, we make brands stand out and help them connect better with their audience.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        <div
+          ref={buttonsRef as React.RefObject<HTMLDivElement>}
+          className={`flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto transition-all duration-700 delay-300 ${
+            buttonsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <a 
             href="https://dribbble.com/yscalestudio"
             target="_blank"
