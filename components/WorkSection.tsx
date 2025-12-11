@@ -21,6 +21,10 @@ const OrchHireVisual = () => (
   <img src="/orc.png" alt="OrchHire" className="w-full h-full object-cover" />
 );
 
+const RoamVisual = () => (
+  <img src="/roam.png" alt="Roam App" className="w-full h-full object-cover" />
+);
+
 const WellbeneVisual = () => (
   <div className="w-full h-full bg-white p-4 relative overflow-hidden flex flex-col border-l border-gray-100">
      {/* Nav */}
@@ -156,7 +160,7 @@ export const WorkSection: React.FC = () => {
             statsLabel="Increase Sales in 60 Days"
             tags={['Digital Pet Tracker']}
             layout="text-right"
-            visual={<PlaceholderVisual label="Roam App" />}
+            visual={<RoamVisual />}
           />
 
           <WorkCard
