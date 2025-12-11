@@ -8,14 +8,12 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { PricingSection } from './components/PricingSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
-import { PortfolioSection } from './components/PortfolioSection';
 import { Footer } from './components/Footer';
 
 function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-orange-100 selection:text-orange-900">
       <Header />
-      <PortfolioSection />
       <Hero />
       <ProcessSection />
       <WorkSection />
