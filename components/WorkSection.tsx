@@ -25,6 +25,10 @@ const RoamVisual = () => (
   <img src="/roam.png" alt="Roam App" className="w-full h-full object-cover" />
 );
 
+const VidroVisual = () => (
+  <img src="/vidro.png" alt="Vidro Product" className="w-full h-full object-cover" />
+);
+
 const WellbeneVisual = () => (
   <div className="w-full h-full bg-white p-4 relative overflow-hidden flex flex-col border-l border-gray-100">
      {/* Nav */}
@@ -193,7 +197,7 @@ export const WorkSection: React.FC = () => {
             statsLabel="Increase Sales in 90 Days"
             tags={['Ecommerce', 'Coffee Brewer']}
             layout="text-left"
-            visual={<PlaceholderVisual label="Product Shot" />}
+            visual={<VidroVisual />}
           />
 
         </div>
