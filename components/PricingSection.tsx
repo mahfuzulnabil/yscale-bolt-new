@@ -70,12 +70,13 @@ export const PricingSection: React.FC = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
 
   const commonFeatures = [
-    "Advanced Apps for complex campaign orchestration",
-    "No-code AI App Builder to create custom Apps without developers",
-    "Access to Jasper’s purpose built marketing Agents",
-    "Dedicated account management & priority support",
-    "Enterprise-grade governance: Admin controls and Groups",
-    "Secure and flexible deployment options"
+    "Wireframe + Landing Page",
+    "Webflow/Framer Development (or any no-code)",
+    "Animations",
+    "Expert Dev",
+    "5 Revisions",
+    "Free Copywriting by Expert CRO",
+    "Built from Scratch (no templates used)"
   ];
 
   return (
