@@ -69,12 +69,22 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, description, bu
 export const PricingSection: React.FC = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.3 });
 
-  const commonFeatures = [
+  const proFeatures = [
     "Wireframe + Landing Page",
     "Webflow/Framer Development (or any no-code)",
     "Animations",
     "Expert Dev",
     "5 Revisions",
+    "Free Copywriting by Expert CRO",
+    "Built from Scratch (no templates used)"
+  ];
+
+  const businessFeatures = [
+    "Wireframe + Full Website Design",
+    "Webflow/Framer Development (or any no-code)",
+    "Animations",
+    "Expert Dev",
+    "Unlimited Revisions",
     "Free Copywriting by Expert CRO",
     "Built from Scratch (no templates used)"
   ];
@@ -102,22 +112,22 @@ export const PricingSection: React.FC = () => {
         {/* Pricing Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
-          <PricingCard 
+          <PricingCard
             title="Pro"
             price="1,200"
             description="Perfect for single, high-impact, conversion-focused landing page."
             buttonText="Book a call"
             buttonStyle="outline"
-            features={commonFeatures}
+            features={proFeatures}
           />
 
-          <PricingCard 
+          <PricingCard
             title="Business"
             price="1,900"
             description="Design with no-code development in your demandable platform"
             buttonText="Book a Call"
             buttonStyle="solid"
-            features={commonFeatures}
+            features={businessFeatures}
           />
 
         </div>
