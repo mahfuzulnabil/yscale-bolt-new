@@ -12,10 +12,10 @@ export const Footer: React.FC = () => {
 
         {/* Social Links */}
         <div className="flex items-center gap-8">
-          <a href="#" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Linkedin</a>
-          <a href="#" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Instagram</a>
-          <a href="#" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Dribbble</a>
-          <a href="#" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Behance</a>
+          <a href="https://www.linkedin.com/company/yscalestudio/" target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Linkedin</a>
+          <a href="https://www.instagram.com/yscalestudio/" target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Instagram</a>
+          <a href="https://dribbble.com/yscalestudio" target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Dribbble</a>
+          <a href="https://www.behance.net/yscalestudio" target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-gray-900 hover:text-brand-orange transition-colors">Behance</a>
         </div>
       </div>
     </footer>
