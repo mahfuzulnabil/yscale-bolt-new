@@ -115,7 +115,7 @@ export const PricingSection: React.FC = () => {
           <PricingCard
             title="Pro"
             price="1,200"
-            description="Perfect for single, high-impact, conversion-focused landing page."
+            description="Perfect for Business Owner, high-impact, conversion-focused landing page."
             buttonText="Book a call"
             buttonStyle="outline"
             features={proFeatures}
