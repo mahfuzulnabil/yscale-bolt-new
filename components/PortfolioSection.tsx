@@ -46,13 +46,6 @@ export const PortfolioSection: React.FC = () => {
   return (
     <section className="w-full bg-white py-12 px-4 md:px-8">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-gray-900 text-center mb-4">
-          Portfolio
-        </h2>
-        <p className="text-sm text-gray-500 text-center mb-12">
-          Three-card preview — duplicated for a smooth gallery
-        </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {cards.map((card) => (
             <div

@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-orange-100 selection:text-orange-900">
       <Header />
+      <PortfolioSection />
       <Hero />
       <ProcessSection />
       <WorkSection />
@@ -22,7 +23,6 @@ function App() {
       <PricingSection />
       <FAQSection />
       <CTASection />
-      <PortfolioSection />
       <Footer />
     </div>
   );
