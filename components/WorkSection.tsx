@@ -30,44 +30,7 @@ const VidroVisual = () => (
 );
 
 const WellbeneVisual = () => (
-  <div className="w-full h-full bg-white p-4 relative overflow-hidden flex flex-col border-l border-gray-100">
-     {/* Nav */}
-     <div className="w-full h-12 border-b border-gray-100 flex items-center justify-between px-4 mb-4">
-        <div className="text-orange-500 font-bold text-lg">wellbene</div>
-        <div className="flex gap-2">
-           <div className="w-20 h-2 bg-gray-100 rounded"></div>
-           <div className="w-6 h-6 bg-gray-100 rounded-full"></div>
-        </div>
-     </div>
-     
-     <div className="flex gap-4 h-full">
-        {/* Sidebar */}
-        <div className="w-1/4 hidden md:block space-y-3 pt-2">
-           <div className="h-2 w-16 bg-gray-200 rounded"></div>
-           <div className="h-2 w-24 bg-gray-100 rounded"></div>
-           <div className="h-2 w-20 bg-gray-100 rounded"></div>
-           <div className="h-2 w-24 bg-gray-100 rounded"></div>
-           <div className="mt-4 h-32 bg-orange-50 rounded-lg border border-orange-100"></div>
-        </div>
-        
-        {/* Grid */}
-        <div className="flex-1 grid grid-cols-2 gap-3 overflow-hidden pb-4">
-           {[1,2,3,4].map(i => (
-             <div key={i} className="border border-gray-100 rounded-lg p-3 flex flex-col items-center hover:shadow-md transition-shadow">
-                <div className="w-20 h-20 bg-gray-50 rounded-md mb-2 relative">
-                   {i === 1 && <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] px-1 rounded-bl">SALE</div>}
-                </div>
-                <div className="w-full h-2 bg-gray-100 rounded mb-1"></div>
-                <div className="w-1/2 h-2 bg-gray-100 rounded mb-2"></div>
-                <div className="w-full flex justify-between items-center mt-auto">
-                   <div className="w-8 h-3 bg-gray-200 rounded"></div>
-                   <div className="w-4 h-4 bg-orange-500 rounded-full text-white flex items-center justify-center text-[10px]">+</div>
-                </div>
-             </div>
-           ))}
-        </div>
-     </div>
-  </div>
+  <img src="/wellbene.png" alt="Wellbene Store" className="w-full h-full object-cover" />
 );
 
 const PlaceholderVisual = ({ label }: { label?: string }) => (
