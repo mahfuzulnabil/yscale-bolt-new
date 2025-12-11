@@ -1,7 +1,6 @@
 import React from 'react';
 import { ClientLogos } from './ClientLogos';
 import { HeaderBackground } from './HeaderBackground';
-import { PortfolioSection } from './PortfolioSection';
 
 export const Hero: React.FC = () => {
   return (
@@ -10,15 +9,7 @@ export const Hero: React.FC = () => {
       <HeaderBackground />
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
-
-        {/* Logos */}
-        <ClientLogos />
-
-        {/* Portfolio Section */}
-        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] mt-12">
-          <PortfolioSection />
-        </div>
-
+        
         {/* Updated "Trusted By" Badge - Simplified */}
         <div className="animate-fade-in-up mb-8 inline-flex items-center bg-white/90 backdrop-blur-sm border border-gray-200/60 rounded-full px-5 py-2 cursor-default hover:bg-white hover:border-green-200 hover:shadow-md transition-all duration-300 select-none">
           <span className="text-sm text-gray-700 font-medium">
@@ -34,13 +25,13 @@ export const Hero: React.FC = () => {
 
         {/* Subheadline */}
         <p className="font-sans text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          We help startups and brands build websites, apps and identities that people love to use.
+          We help startups and brands build websites, apps and identities that people love to use. 
           At Yscale, we make brands stand out and help them connect better with their audience.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a
+          <a 
             href="https://dribbble.com/yscalestudio"
             target="_blank"
             rel="noopener noreferrer"
@@ -48,7 +39,7 @@ export const Hero: React.FC = () => {
           >
             See Portfolio
           </a>
-          <a
+          <a 
             href="https://calendly.com/mahfuzulnabil/discussion-with-nabil"
             target="_blank"
             rel="noopener noreferrer"
@@ -57,6 +48,9 @@ export const Hero: React.FC = () => {
             Book a Call
           </a>
         </div>
+
+        {/* Logos */}
+        <ClientLogos />
       </div>
     </main>
   );
