@@ -91,8 +91,8 @@ export const CTASection: React.FC = () => {
           </div>
 
           {/* Cal.com Embedded Calendar */}
-          <div className="w-full min-h-[600px]">
-            <div style={{width:'100%', height:'600px', overflow:'scroll'}} id="my-cal-inline-discussion-with-nabil"></div>
+          <div className="w-full h-[900px]">
+            <div style={{width:'100%', height:'100%', overflow:'hidden'}} id="my-cal-inline-discussion-with-nabil"></div>
           </div>
 
         </div>
