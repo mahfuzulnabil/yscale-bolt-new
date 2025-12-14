@@ -7,6 +7,20 @@ export const CTASection: React.FC = () => {
 
   return (
     <section className="w-full bg-white py-24 px-4 md:px-8">
+      <style>{`
+        #my-cal-inline-discussion-with-nabil iframe {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        #my-cal-inline-discussion-with-nabil [class*="branding"],
+        #my-cal-inline-discussion-with-nabil [class*="powered"],
+        #my-cal-inline-discussion-with-nabil a[href*="cal.com"]:not([href*="mahfuzulnabil"]) {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          overflow: hidden !important;
+        }
+      `}</style>
       <div className="max-w-4xl mx-auto flex flex-col items-center">
 
 
@@ -37,7 +51,7 @@ export const CTASection: React.FC = () => {
             cardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <div style={{width:'100%', height:'900px', overflow:'scroll'}} id="my-cal-inline-discussion-with-nabil"></div>
+          <div style={{width:'100%', height:'750px', overflow:'hidden', margin:'0', padding:'0'}} id="my-cal-inline-discussion-with-nabil"></div>
         </div>
 
       </div>
