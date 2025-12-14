@@ -3,14 +3,14 @@ import { Logo } from './Logo';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export const Footer: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
     <footer className="w-full bg-white py-12 border-t border-gray-100">
       <div
         ref={ref as React.RefObject<HTMLDivElement>}
-        className={`max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 transition-all duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        className={`max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 transition-all duration-700 opacity-100 ${
+          isVisible ? 'translate-y-0' : ''
         }`}
       >
         {/* Logo */}
