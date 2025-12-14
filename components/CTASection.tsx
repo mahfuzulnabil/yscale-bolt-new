@@ -31,21 +31,18 @@ export const CTASection: React.FC = () => {
           Have any project idea in your mind!
         </h2>
 
-        {/* Mock Calendly Card */}
-        <a
-          ref={cardRef as React.RefObject<HTMLAnchorElement>}
-          href="https://calendly.com/mahfuzulnabil/discussion-with-nabil"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`w-full max-w-[680px] bg-white rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200 overflow-hidden relative group transition-all duration-700 hover:-translate-y-1 ${
+        {/* Cal.com Booking Card */}
+        <div
+          ref={cardRef as React.RefObject<HTMLDivElement>}
+          className={`w-full max-w-[680px] bg-white rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200 overflow-hidden relative transition-all duration-700 ${
             cardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
           {/* Ribbon */}
-          <div className="absolute top-0 right-0">
+          <div className="absolute top-0 right-0 z-10">
              <div className="w-32 h-32 absolute top-0 right-0 overflow-hidden">
                 <div className="absolute top-0 right-0 w-[150%] h-8 bg-gray-600 text-white text-[9px] font-bold flex items-center justify-center uppercase tracking-wider transform rotate-45 translate-x-[28%] translate-y-[100%] shadow-md">
-                   Powered by Calendly
+                   Powered by Cal.com
                 </div>
              </div>
           </div>
@@ -53,12 +50,12 @@ export const CTASection: React.FC = () => {
           <div className="p-8 md:p-12 flex flex-col items-center border-b border-gray-100">
             {/* Avatar */}
             <div className="w-16 h-16 rounded-full overflow-hidden mb-4 shadow-sm border border-gray-100">
-              <img 
-                src="https://avatars.githubusercontent.com/u/20656638?v=4" // Using a generic placeholder or the user's github if available, falling back to a professional placeholder
+              <img
+                src="https://avatars.githubusercontent.com/u/20656638?v=4"
                 onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=Mahfuzul+Nabil&background=random";
                 }}
-                alt="Mahfuzul Islam Nabil" 
+                alt="Mahfuzul Islam Nabil"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -67,7 +64,7 @@ export const CTASection: React.FC = () => {
             <div className="text-center mb-8">
               <h4 className="text-gray-500 font-medium text-sm mb-1">Mahfuzul Islam Nabil</h4>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Discussion with Nabil</h3>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-gray-600 text-sm font-medium">
                 <div className="flex items-center gap-2">
                   <Clock size={18} className="text-gray-400" />
@@ -89,11 +86,16 @@ export const CTASection: React.FC = () => {
                 On this call, you can walk me through your idea, your current design, or the problem you're trying to solve.
               </p>
             </div>
-            
-            <span className="text-brand-orange font-bold text-sm cursor-pointer hover:underline">SHOW MORE</span>
+
+            <span className="text-brand-orange font-bold text-sm">SHOW MORE</span>
           </div>
 
-        </a>
+          {/* Cal.com Embedded Calendar */}
+          <div className="w-full min-h-[600px]">
+            <div style={{width:'100%', height:'600px', overflow:'scroll'}} id="my-cal-inline-discussion-with-nabil"></div>
+          </div>
+
+        </div>
 
       </div>
     </section>
